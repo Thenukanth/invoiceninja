@@ -48,7 +48,7 @@ var ForteAuthorizeACH = /*#__PURE__*/_createClass(function ForteAuthorizeACH(api
   });
   _defineProperty(this, "failedResponseHandler", function (response) {
     var errors = '<div class="alert alert-failure mb-4"><ul><li>' + response.response_description + '</li></ul></div>';
-    document.getElementById('forte_errors').innerHTML = errors;
+    document.getElementById('forte_errors').innerText = errors;
     document.getElementById('pay-now').disabled = false;
     document.querySelector('#pay-now > svg').classList.add('hidden');
     document.querySelector('#pay-now > span').classList.remove('hidden');
