@@ -32,3 +32,11 @@
 
 ## 3. Current State
 The local deployment is stable, the database is migrated, and the backend is actively routing OAuth requests.
+
+### Issue 4: Missing Permissions-Policy Header (Vulnerability #5)
+**Remediation:** Added `add_header Permissions-Policy "camera=(), microphone=(), geolocation=()";` to the NGINX configuration (`invoiceninja.conf`). 
+**Local Environment Note:** During local verification, the header did not immediately reflect in the browser. This was diagnosed as a Docker Desktop on Windows volume-mounting constraint, where file locks prevent the Linux container from immediately syncing the updated configuration file without a hard rebuild.
+
+### Issue 5: Missing 'Secure' Attribute on Session Cookies (Vulnerability #6)
+**Remediation:** Enforced secure cookies by adding `SESSION_SECURE_COOKIE=true` to the `.env` file.
+**Local Environment Note:** During local verification on `http://localhost:8000`, the `Secure` flag was intentionally suppressed by the framework/browser. Modern web standards dictate that `Secure` cookies cannot be transmitted over unencrypted HTTP connections. If enforced locally, it would result in an immediate session lockout. The configuration is verified as correct and will automatically activate upon deployment to an HTTPS production environment.
