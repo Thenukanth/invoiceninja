@@ -1,5 +1,21 @@
 <?php
 
+use Laravel\Socialite\Facades\Socialite;
+
+Route::get('/google-test', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/google-test/callback', function () {
+    $user = Socialite::driver('google')->user();
+
+    if (!str_ends_with($user->getEmail(), '@company.com')) {
+        return 'Access denied: Unauthorized domain';
+    }
+
+    return $user;
+});
+
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -60,3 +76,4 @@ Route::get('gocardless/oauth/connect/{token}', [GoCardlessOAuthController::class
 Route::redirect('buy_now', 'https://invoiceninja.invoicing.co/client/subscriptions/O5xe7Rwd7r/purchase', 301);
 
 \Illuminate\Support\Facades\Broadcast::routes(['middleware' => ['token_auth']]);
+
