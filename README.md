@@ -1,3 +1,102 @@
+## IE5042 – Software Security Assignment
+
+### Student Security Analysis Project
+
+This repository is used for conducting a structured security analysis
+of the Invoice Ninja web application.
+
+### Scope of Work
+- Local deployment and environment configuration
+- Threat modeling using STRIDE
+- OWASP Top 10 security testing
+- Automated and manual vulnerability analysis
+- Implementation of security improvements
+- Retesting and documentation
+
+### Ethical Statement
+All security testing will be conducted on a locally deployed instance.
+No testing will be performed against live production systems.
+
+## 1. Group Members
+Member 1: Thenuja Jeyakanthan - MS25950540 
+Member 2: Umesha Herath - MS25943092
+
+## 2. Project Overview
+
+This project involves performing security analysis and remediation on a web application. Both Dynamic Application Security Testing (DAST) and Static Application Security Testing (SAST) techniques were used to identify and fix vulnerabilities.
+
+The objective was to:
+
+Identify real-world vulnerabilities
+Apply secure coding and configuration fixes
+Verify mitigation effectiveness
+Maintain proper version control practices
+
+## 3. Original Project (Third-Party Source)
+Project Name: Invoice Ninja
+GitHub Repository: https://github.com/invoiceninja
+
+This project was used as the base application for vulnerability analysis and remediation.
+
+## 4. Modified Project Repository
+GitHub Repository (Secured Version):
+git clone https://github.com/Thenukanth/invoiceninja.git 
+
+This repository contains:
+
+All implemented fixes
+Full commit history
+Security improvements
+
+## 5. Key Security Fixes Implemented
+
+The following vulnerabilities were identified and resolved:
+
+Content Security Policy (CSP) not set
+Cross-Origin Resource Sharing (CORS) misconfiguration
+Missing HttpOnly flag on cookies
+Missing Secure flag on cookies
+Missing Permissions-Policy header
+Missing X-Content-Type-Options header
+Information disclosure via Server and X-Powered-By headers
+Timestamp disclosure
+PHP Type Juggling vulnerability (authentication bypass)
+DOM-based Cross-Site Scripting (XSS)
+Exposure of OAuth credentials in source code
+
+## 6. Technologies Used
+Docker (Containerized Environment)
+NGINX (Web Server Configuration)
+PHP (Backend)
+JavaScript (Frontend)
+Git & GitHub (Version Control)
+Semgrep (Static Analysis Tool)
+Browser DevTools (Dynamic Analysis)
+
+## 7. Commit History Requirement
+
+The GitHub repository includes:
+
+Multiple commits with descriptive messages
+Clear tracking of each vulnerability fix
+Evidence of collaborative development
+
+This ensures transparency and validates the remediation process.
+
+## 8. Notes
+Sensitive credentials (OAuth keys) were removed from source code and securely stored in environment variables.
+Some security headers (e.g., Secure cookies) may not be visible in local HTTP testing environments but will function correctly under HTTPS.
+Certain server-level configurations are partially limited due to Docker container constraints.
+
+## 9. Conclusion
+
+The project demonstrates the successful identification, remediation, and verification of multiple security vulnerabilities using industry-standard practices. The final application is significantly more secure and adheres to modern web security standards.
+
+
+
+
+
+
 <p align="center">
 <a href ="https://www.youtube.com/watch?v=CxGxXiotv0I" target="_blank" title="Invoice Ninja Overview Video"><img src="https://raw.githubusercontent.com/hillelcoren/invoice-ninja/master/public/images/round_logo.png" alt="Sublime's custom image"/></a>
 </p>
@@ -187,21 +286,3 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-## IE5042 – Software Security Assignment
-
-### Student Security Analysis Project
-
-This repository is used for conducting a structured security analysis
-of the Invoice Ninja web application.
-
-### Scope of Work
-- Local deployment and environment configuration
-- Threat modeling using STRIDE
-- OWASP Top 10 security testing
-- Automated and manual vulnerability analysis
-- Implementation of security improvements
-- Retesting and documentation
-
-### Ethical Statement
-All security testing will be conducted on a locally deployed instance.
-No testing will be performed against live production systems.
